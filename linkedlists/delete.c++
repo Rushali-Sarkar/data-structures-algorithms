@@ -60,8 +60,6 @@ class LinkedList {
         void insertAtHead(int value) {
 
         Node* newNode = new Node(value);
-        newNode -> nextElement = head;
-        head = newNode;
         }
 
         void insertAtTail(int value) {

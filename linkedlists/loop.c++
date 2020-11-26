@@ -22,6 +22,7 @@
  */
 
 #include<iostream>
+#include<string>
 
 using  namespace std;
 
@@ -43,6 +44,8 @@ class Node {
 
 class LinkedList {
 
+    public:
+
     Node* head; // Pointing to start of the list.
 
     LinkedList() {
@@ -62,20 +65,20 @@ class LinkedList {
 
     void insertAtTail(int value) {
         if (isEmpty()){
-            insertAtHead(value)
+            insertAtHead(value);
         }
         else {
             Node* newnode = new Node(value);
             Node* nthElement = head;
             while (nthElement -> nextElement != nullptr) 
                 nthElement = nthElement -> nextElement;
-            nthElement -> nextElement = newNode;
+            nthElement -> nextElement = newnode;
         }
         return;
     }
 
     void printList() {
-        Node* nthelement = new Node(value);
+        Node* nthelement = head;
         while (nthelement != nullptr) {
             cout << nthelement -> data << " ";
             nthelement = nthelement -> nextElement;
@@ -84,10 +87,86 @@ class LinkedList {
         return;
     }
 
+    string elements() {
+
+       Node* fast = head;
+       Node* slow = head;
+       
+       string list = "";
+       while (fast != nullptr && fast -> nextElement != nullptr && fast -> nextElement -> nextElement != nullptr) {
+           list = list + to_string(slow -> data) + " ";
+           slow = slow -> nextElement;
+           fast = fast -> nextElement -> nextElement;
+           if (fast == slow) {
+               list = list + to_string(slow -> data) + " ";
+               slow = slow -> nextElement;
+               while (slow != fast) {
+                   list = list + to_string(slow -> data) + " ";
+                   slow = slow -> nextElement;
+               }
+               list = list + to_string(fast -> data) + " ";
+               return list;
+           }
+       }
+
+       while (slow != nullptr) {
+           list = list + to_string(slow -> data) + " ";
+           slow = slow -> nextElement;
+       }
+
+        return list;
+    }
+
+    int length() {
+
+        Node* nthelement = head;
+        int size = 0;
+        while (nthelement != nullptr) {
+            size++;
+            nthelement = nthelement -> nextElement;
+        }
+
+        return size;
+    }
+
+    void insertLoop() {
+
+        int size = length();
+        srand(time(NULL));
+        int num = rand() % size;
+        int counter = 0;
+
+        Node* nthelement = head;
+        Node* loopingelement = new Node();
+
+        while (nthelement -> nextElement != nullptr) {
+            counter++;
+            if (counter == num)
+                loopingelement = nthelement;
+            nthelement = nthelement -> nextElement;
+        }
+        nthelement -> nextElement = loopingelement;
+        if (loopingelement -> nextElement == nullptr) 
+            nthelement -> nextElement -> nextElement = nthelement;
+        return;
+    }
+
     bool detectLoop();
 };
 
 bool LinkedList::detectLoop() {
+
+    Node* fast = head;
+    Node* slow = head;
+
+    while (fast != nullptr && fast -> nextElement != nullptr && fast -> nextElement -> nextElement != nullptr) {
+        fast = fast -> nextElement -> nextElement;
+        slow = slow -> nextElement;
+        if (fast == slow)
+            return true;
+    }
+
+    return false;
 }
 
 int main() {

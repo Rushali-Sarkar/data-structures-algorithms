@@ -21,6 +21,7 @@
  */
 
 #include<iostream>
+#include<string>
 
 using namespace std;
 
@@ -88,12 +89,22 @@ class LinkedList {
             cout << endl;
             return;
         }
+
+        string elements() {
+            Node* nthelement = head;
+            string list = "";
+            while (nthelement != nullptr) {
+                list = list + to_string(nthelement -> data) + " ";
+                nthelement = nthelement -> nextElement;
+            }
+          return list;
+        }
     
-       void reverse();
+       string reverse();
        
 };
 
-void LinkedList::reverse() {
+string LinkedList::reverse() {
 
   
 
@@ -110,7 +121,7 @@ void LinkedList::reverse() {
     
     head = previous;
 
-    return;
+    return elements();
 }
    
 
@@ -121,9 +132,8 @@ int main() {
         list.printList();
     }
 
-    list.reverse(); // calling  reverse  function of list
-    cout << "List after reverse function : ";
-    list.printList();
+    string reversed = list.reverse(); // calling  reverse  function of list
+    cout << "List after reverse function : " << reversed << endl;
     return 0;
 }
 

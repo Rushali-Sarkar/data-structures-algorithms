@@ -1,22 +1,23 @@
-/* You have to implement the findMid() function which is memeber function of a LinkedList and it should return the value of the
- * middle node. If the length of the list is even, the middle value will occur at, length / 2.
- * For a list of odd length, the middle value will be, length / 2 + 1.
+/* Problem Statement
+ *
+ * In the findNth(int n) function, a certain n i specified as an argument. You simply need to return the node which is n spaces
+ * away from the end of the linked list.
  *
  * Input
  *
- * A linked list
+ * A position n.
  *
  * Output 
  *
- * The middle element of the linked list.
+ * The value of the node n positions from the end. Returns -1 if n i out of bound.
  *
  * Sample Input
- *
- * 7 -> 14 -> 10 -> 21 -> null
+ * 
+ * 22 -> 18 -> 60 -> 78 -> 47 -> 39 -> 99 and n = 3
  *
  * Sample Output
  *
- * 14
+ * 47
  */
 
 #include<iostream>
@@ -24,8 +25,8 @@
 using namespace std;
 
 class Node {
-    public: 
-        int data; // data to store (could be int, string object, etc)  
+    public:
+        int data; // data to store (could be int, string object, etc)
         Node* nextElement; // Pointer to next element
 
         Node() {
@@ -37,13 +38,12 @@ class Node {
             data = value;
             nextElement = nullptr;
         }
-
 };
 
 class LinkedList {
-
     public:
-        Node* head; // Pointing to start of the list.
+
+        Node* head; // Pointing to start of the list
 
         LinkedList() {
             head = nullptr;
@@ -61,10 +61,9 @@ class LinkedList {
         }
 
         void insertAtTail(int value) {
-            if (isEmpty()) {
+            if(isEmpty()) {
                 insertAtHead(value);
             }
-
             else {
                 Node* newNode = new Node(value);
                 Node* nthelement = head;
@@ -78,7 +77,7 @@ class LinkedList {
         int length() {
             Node* nthelement = head;
             int size = 0;
-            while (nthelement != nullptr) {
+            while (nthelement !=  nullptr) {
                 size++;
                 nthelement = nthelement -> nextElement;
             }
@@ -95,35 +94,34 @@ class LinkedList {
             return;
         }
 
-        int findMid();
+        int findNth(int n);
 };
 
-int LinkedList::findMid() {
+
+// To Find nth node from end of list
+int LinkedList::findNth(int n) {
+    int nth = length() - n + 1;
+    int counter = 0;
     
-    Node* slow = head;
-    Node* fast = head;
-        
-    while (fast  -> nextElement != nullptr && fast -> nextElement -> nextElement != nullptr) {
-        
-        slow = slow -> nextElement;
-        fast = fast -> nextElement -> nextElement;
+
+    Node* nthelement = head;
+    while (nthelement != nullptr) {
+        counter++;
+        if (counter == nth)
+            return nthelement -> data;
+        nthelement = nthelement -> nextElement;
     }
-
-    return slow -> data;
-
+    return 0;
 }
 
 int main() {
-    LinkedList list;
-    srand (time(NULL)); // seed to produce random numbers everytime
-    int num = 0;
-    int size = rand() % 10 + 4;
-    for (int i = 1; i <= size; i++) {
-        num = rand() % 10 + 1; // generating random numbers in range 1 to 100
-        list.insertAtHead(num); //inserting value in the list
+    LinkedList list; // creating list
+    for (int j = 0; j <= 7; j++) {
+        list.insertAtHead(j); // inserting data in list
         list.printList();
     }
-
-    int mid = list.findMid(); //calling findMid function
-    cout << "Middle element of the list : " << mid << endl;
+    int num = 5;
+    int nth = list.findNth(num); // calling findNth function of list
+    cout << num << "th element from end of the list : " << nth << endl;
+    return 0;
 }
