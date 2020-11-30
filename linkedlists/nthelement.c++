@@ -100,18 +100,21 @@ class LinkedList {
 
 // To Find nth node from end of list
 int LinkedList::findNth(int n) {
-    int nth = length() - n + 1;
+    
     int counter = 0;
     
+    Node* forward = head;
+    Node* current = head;
 
-    Node* nthelement = head;
-    while (nthelement != nullptr) {
+    while (forward -> nextElement != nullptr) {
         counter++;
-        if (counter == nth)
-            return nthelement -> data;
-        nthelement = nthelement -> nextElement;
+        forward = forward -> nextElement;
+        if (counter < n)
+            continue;
+        current = current -> nextElement;
     }
-    return 0;
+
+    return current -> data;
 }
 
 int main() {
