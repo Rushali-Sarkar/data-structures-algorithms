@@ -1,3 +1,36 @@
+/* Problem Statement
+ *
+ * You have to implement the string tracePath(unordered_map<string, string> map) function, which will take in an
+ * array of source-destination pairs and return the correct sequence of the whole journey from the first city to 
+ * the last.
+ *
+ * Input
+ *
+ * An unordered_map of type <string, string> containing string pairs of source-destination cities.
+ *
+ * Output
+ *
+ * A string of source-destination pairs in correct order.
+ *
+ * Sample Input
+ * 4
+ *
+ * NewYork
+ * Chicago
+ * Boston
+ * Texas
+ * Missouri
+ * NewYork
+ * Texas
+ * Missouri
+ *
+ * Sample Output
+ *
+ * Boston -> Texas, Texas -> Missouri, Missouri -> NewYork, NewYork->Chicago
+ */
+
+
+
 #include<unordered_map>
 #include<iostream>
 #include<string>

@@ -1,3 +1,33 @@
+/* Problem Statement
+ *
+ * In this problem, you have to implement the string findPair(int* arr, int size)function, which will find two
+ * pairs[a, b] and [c, d] in an array such that:
+ *
+ * a + b = c + d
+ *
+ * You have to find any two pairs in the array which satisfies the above condition.
+ *
+ * Input
+ *
+ * An array of distince integers and their size.
+ *
+ * Output 
+ *
+ * A string containing two pairs(a, b) and (c, d) which satisfy a + b = c + d in {a, b}{c, d} format
+ *
+ * Input = 6
+ * 3
+ * 4
+ * 7
+ * 1
+ * 12
+ * 9
+ *
+ * Output = {{4, 12},{7, 9}}
+ */
+
+
+
 #include<unordered_map>
 #include<iostream>
 #include<string>
