@@ -102,9 +102,6 @@ int main(int argc, char* argv[]) {
 
     push(queue, 6);
     push(queue, 7);
-    push(queue, 8);
-    push(queue, 9);
-    push(queue, 10);
     show(queue);
 
     printf("Poped %d out of the queue.\n", pop(queue));
