@@ -3,7 +3,7 @@ class Stack:
     def __init__(self, capacity: int):
 
         self.top = -1;
-        self.stack_arr = [];
+        self.stack_arr = [0 for i in range(capacity)];
         self.capacity = capacity;
 
     def push(self, item: int):
@@ -12,7 +12,7 @@ class Stack:
             print("Stack Overflow")
             return
 
-        self.stack_arr.append(item)
+        self.stack_arr[self.top + 1] = item
         self.top = self.top + 1
         return
 
@@ -32,6 +32,3 @@ class Stack:
             return -1
 
         return self.stack_arr[top]
-
-    def size(self) -> int:
-        return self.top + 1
