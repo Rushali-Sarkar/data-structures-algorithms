@@ -43,3 +43,14 @@ class Queue:
             return -1
 
         return self.queue_arr[self.head - 1]
+
+
+if __name__ == "__main__":
+
+    queue = Queue(6)
+    queue.enqueue(4)
+    queue.enqueue(1)
+    queue.enqueue(3)
+    print(queue.dequeue())
+    queue.enqueue(8)
+    print(queue.dequeue())

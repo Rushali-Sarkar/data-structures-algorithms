@@ -32,3 +32,13 @@ class Stack:
             return -1
 
         return self.stack_arr[top]
+
+if __name__ == "__main__":
+
+    stack = Stack(6)
+    stack.push(4)
+    stack.push(1)
+    stack.push(3)
+    print(stack.pop())
+    stack.push(8)
+    print(stack.pop())

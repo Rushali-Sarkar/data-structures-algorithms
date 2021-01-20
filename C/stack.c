@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<malloc.h>
 
 struct Stack {
@@ -83,7 +82,3 @@ int main(int argc, char* argv) {
 
     return 0;
 }
-
-
-
-
