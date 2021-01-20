@@ -65,7 +65,7 @@ void showStack(struct Stack* stack) {
     return;
 }
 
-int main(int argc, char* argv) {
+int main(int argc, char* argv[]) {
 
     struct Stack* stack = createStack(10);
     push(stack, 1);
