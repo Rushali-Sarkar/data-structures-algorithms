@@ -1,0 +1,7 @@
+The time complexity of the algorithms is O(n) where n is the number of nodes in the binary
+tree because all the nodes are traversed at least once.
+
+The space complexity of the algorithm is O(n) because there is an array made of atmost n
+elements. Because the number of  leaf nodes is almost the half the total number of nodes
+in the tree. The call stack on the other hand has atmost one complete branch of the tree 
+that is O(log(n)). Hence the space complexity is O(n).

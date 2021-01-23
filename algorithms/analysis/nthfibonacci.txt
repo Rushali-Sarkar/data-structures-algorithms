@@ -1,0 +1,7 @@
+The space complexity of the solution is O(n) since everytimt the function is called,
+it gets stored in the call stack until the next call and so on and so forth until the
+base case is finally hit.
+
+The time complexity for this soltuion is O(2 ^ n) since everytime the function is called,
+there are two more function calls that has to be taken care of. In other words the calls
+keep on increasing twice the no of calls for each time.

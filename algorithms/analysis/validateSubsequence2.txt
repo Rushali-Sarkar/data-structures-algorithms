@@ -1,0 +1,5 @@
+The time complexity of the algorithm is O(n) where n is the number of elements in the main 
+array because atmost the entire array will be traversed once.
+
+The space complexity of the algorithm is O(1) as there is no extra space that is used which 
+increases with the increase in the number of elements input.

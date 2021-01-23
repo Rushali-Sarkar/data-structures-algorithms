@@ -51,10 +51,9 @@ void push(struct Stack* stack, int item) {
 
 int pop(struct Stack* stack) {
 
-    if (isEmpty(stack)) {
-        printf("Stack Underflow\n");
+    if (isEmpty(stack))    
         return -1;
-    }
+    
 
     if (stack -> top == 1) {
         int item = stack -> list -> head -> data;
@@ -78,10 +77,8 @@ int pop(struct Stack* stack) {
 int peek(struct Stack* stack) {
 
 
-    if (isEmpty(stack)) {
-        printf("Stack Underflow\n");
+    if (isEmpty(stack))
         return -1;
-    }
 
     struct Node* newNode = malloc(sizeof(struct Node));
     newNode = stack -> list -> head;
@@ -134,6 +131,8 @@ int main(int argc, char* argv[]) {
                 item = pop(stack);
                 if (item != -1)
                     printf("Poped %d out of the stack.\n", item);
+                else
+                    printf("Stack Underflow\n.");
                 break;
 
             case 3:
@@ -144,6 +143,8 @@ int main(int argc, char* argv[]) {
                 item = peek(stack);
                 if (item != -1)
                     printf("The top of the stack has %d.\n", item);
+                else
+                    printf("Stack Underflow\n.");
                 break;
 
             case 5:

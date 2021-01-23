@@ -1,0 +1,7 @@
+The time complexity of this algorithm is O(n) since we are calculating the value of each
+nth term only once. It is calculated once and stored in the hash table and every time next
+it is required it is being referenced from the hash table  in O(1) time.
+
+The space complexity of this algorithm is however O(n). It is because, though there are no 
+call stack involved for most part of the solution yet there is a hastable required to store 
+all the n values of the fibonacci sequence. 

@@ -1,0 +1,4 @@
+The time complexity of this algorithm is O(nlogn), that is the time complexity of the sort
+funciton. 
+
+The space complexity of this algorithm is O(1) since there is no extra space used to store data.

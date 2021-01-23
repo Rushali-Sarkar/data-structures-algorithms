@@ -1,0 +1,4 @@
+This algorithm takes O(n ^ 2) time as for each value in the array all other values are traversed
+and added to that value to find the targer sum.
+
+The space complexity of this algorithm is O(1) because there is no extra space used anywhere.

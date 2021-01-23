@@ -1,0 +1,7 @@
+The time complexity of the algorithm is O(log(n)) in average case but in case the Binary Search
+Tree just has one big branch and no other branching then the time complexity will be O(n) which
+is the worst case.
+
+The space complexity of the algorithm will also be O(log(n)) as there are recursive calls and 
+the calls are stored in the call stack and simillary in case there is no other branching 
+the worst case space complexity will be O(n)

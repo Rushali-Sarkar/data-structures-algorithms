@@ -1,0 +1,7 @@
+The time complexity of this algorithm will be O(n) in worst case when there is no other 
+branching but one single big branch in the tree, in average case however the time complexity
+will be O(log(n)) beacause we will be eliminating one of the Binary Search Tree after each 
+iteration.
+
+The space complexity of this algorithm is however O(1) in all cases because there is no
+extra space used as the input increases. The space used always remains a constant.

@@ -1,0 +1,6 @@
+The time complexity of this algorith is O(n) because to calculate the nth fibonacci the loop
+has to run n times.
+
+The space complexity for this algorithm is however O(1) because there is no extra space 
+involved. Only an array of a fixed length that is 2 is used to store the current and previous
+values and at each step the array is updated with new values.

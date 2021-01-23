@@ -1,0 +1,6 @@
+The time complexity of this algorithm is O(n) as the elements in the array is looked up only
+once in the entire process. The find function in a hash table is O(1) so the overall time 
+complexity remains O(n)
+
+The space complexity is however O(n) because we are decalring a hash table and storing atmost
+n values in it (worst case where no two numbers add up to the given result). 
