@@ -84,34 +84,17 @@ void show(struct Queue* queue) {
 
 int main(int argc, char* argv[]) {
 
-    struct Queue* queue = createQueue(5);
+    struct Queue* queue = createQueue(3);
     push(queue, 1);
     push(queue, 2);
     push(queue, 3);
+    show(queue);
+    printf("%d\n", pop(queue));
     push(queue, 4);
-    push(queue, 5);
     show(queue);
-
-    printf("Poped %d out of the queue.\n", pop(queue));
-    printf("Poped %d out of the queue.\n", pop(queue));
-    printf("Poped %d out of the queue.\n", pop(queue));
-    show(queue);
-    printf("Poped %d out of the queue.\n", pop(queue));
-    printf("Poped %d out of the queue.\n", pop(queue));
-    show(queue);
-
-    push(queue, 6);
-    push(queue, 7);
-    show(queue);
-
-    printf("Poped %d out of the queue.\n", pop(queue));
-    printf("Poped %d out of the queue.\n", pop(queue));
-    printf("Poped %d out of the queue.\n", pop(queue));
-    show(queue);
-    printf("Poped %d out of the queue.\n", pop(queue));
-    printf("Poped %d out of the queue.\n", pop(queue));
-    show(queue);
-
+    printf("%d\n", pop(queue));
+    printf("%d\n", pop(queue));
+    printf("%d\n", pop(queue));
     return 0;
 
 }
