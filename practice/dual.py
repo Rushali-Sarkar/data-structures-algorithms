@@ -12,7 +12,7 @@ class Queue:
     def isFull(self) -> bool:
         if self.head == 0 and self.tail == self.length:
             return True
-        return self.head = self.tail + 1
+        return self.head == self.tail + 1
 
     def enqueue(self, element: int) -> None:
         if self.isFull():
@@ -62,7 +62,7 @@ class Queue:
 class Stack:
 
     def __init__(self, n = 0):
-        self.n = 0
+        self.n = n
         self.top = -1
         self.stack = [-1 for i in range(self.n)]
 
@@ -83,7 +83,7 @@ class Stack:
         if self.isEmpty():
             return -1
         pop_element = self.stack[self.top]
-        self.top = self.top - 1
+        self.top -= 1
         return pop_element
 
     def peek(self) -> int:
@@ -110,10 +110,10 @@ class QueueUsingStack:
 
 
     def isEmpty(self) -> bool:
-        return self.length == self.n
+        return self.length == 0
 
     def isFull(self) -> bool:
-        return self.length == 0
+        return self.length == self.n
 
     def enqueue(self, element: int) -> None:
         if self.isFull():
@@ -132,27 +132,45 @@ class QueueUsingStack:
             self.stack2.push(self.stack1.pop())
         return self.stack2.pop()
 
-    def getHead(self) -> int:
-        if self.isEmpty():
-            return 0
-        if not self.stack2.isEmpty():
-            return self.stack2.top()
-        while not self.stack1.isEmpty():
-            self.stack2.push(self.stack1.top())
-        return self.stack2.top()
+class StackUsingQueue:
 
-    def getTail(self) -> int:
-        if self.isEmpty():
-            return 0
-        if self.stack1.isEmpty():
-            return self.stack2[0]
-        return self.stack1.top()
+    def __init__(self, n = 0):
+        self.n = n
+        self.queue1 = Queue(self.n)
+        self.queue2 = Queue(self.n)
+        self.items = 0
 
-    def printQueue(self) -> int:
-        self.stack2.printStack()
-        self.stack1.printStack()
+    def isEmpty(self) -> bool:
+        return self.items == 0
+
+    def isFull(self) -> bool:
+        return self.items == self.n
+
+    def push(self, element: int) -> None:
+        if self.isFull():
+            return None
+        self.items += 1
+        if self.queue2.isEmpty():
+            self.queue1.enqueue(element)
+            return None
+        self.queue2.enqueue(element)
         return None
 
-
-
-
+    def pop(self) -> int:
+        if self.isEmpty():
+            return -1
+        last_element_popped = -1
+        self.items -= 1
+        if self.queue1.isEmpty():
+            while not self.queue2.isEmpty():
+                last_element_popped = self.queue2.dequeue()
+                if self.queue2.isEmpty():
+                    return last_element_popped
+                self.queue1.enqueue(last_element_popped)
+            return last_element_popped
+        while not self.queue1.isEmpty():
+            last_element_popped = self.queue1.dequeue()
+            if self.queue1.isEmpty():
+                return last_element_popped
+            self.queue2.enqueue(last_element_popped)
+        return last_element_popped
